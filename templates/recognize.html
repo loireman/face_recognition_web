@@ -29,6 +29,8 @@
                 <label for="image" class="form-label">Image</label>
                 <input type="file" name="image" class="form-control" id="image" required>
                 <div class="invalid-feedback">Please upload an image.</div>
+
+                <img class="pt-3" id="blah" src="#" alt="your image" />
             </div>
             <div class="col-12 text-center">
                 <button class="btn btn-primary" type="submit">Recognize Face</button>
@@ -56,6 +58,13 @@
                 }, false);
             });
         })();
+        
+        image.onchange = evt => {
+            const [file] = image.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+            }
+        }
     </script>
 </body>
 </html>
